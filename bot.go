@@ -35,6 +35,8 @@ func GetEnvVars() {
 	BotToken = os.Getenv("BOT_TOKEN")
 	WebHookUrl = os.Getenv("WEBHOOK_URL")
 	Port = ":" + os.Getenv("PORT")
+	connection, _ := pq.ParseURL(url) 
+    	connection += " sslmode=require" 
 }
 
 func ProcessUpdates(update *tgbotapi.Update) {
